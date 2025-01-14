@@ -59,11 +59,11 @@ instruments["CH1281"].write("TRG_SRCE INT")
 instruments["CH1281"].close()
 
 
-instruments["F5442A"]=rm.open_resource("self.instr")
+instruments["F5442A"]=rm.open_resource("GPIB0::2::INSTR")
 instruments["F5442A"].clear()
 instruments["F5442A"].write("RESET") 
 time.sleep(3)
-print("*IDN? -> "+instruments["F5442A"].query("GSTS"))
+print("F5442A GSTS -> "+instruments["F5442A"].query("GSTS"))
 instruments["F5442A"].write("SOUT "+str(umin))
 instruments["F5442A"].write("OPER")
 instruments["F5442A"].close()
